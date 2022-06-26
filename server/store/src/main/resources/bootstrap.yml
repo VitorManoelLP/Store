@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: 'store'
+    profile:
+      active: default
+    cloud:
+      config: http://localhost:8888
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    port: '6379'
+  datasource:
+    url: jdbc:h2:mem:db
+
+server:
+  port: '8080'

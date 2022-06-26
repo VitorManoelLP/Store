@@ -4,6 +4,7 @@ import com.project.store.domain.Usuario;
 import com.project.store.fixture.Fixture;
 import com.project.store.repository.UsuarioRepository;
 import com.project.store.resources.UsuarioResource;
+import com.project.store.service.UsuarioService;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
@@ -38,6 +39,9 @@ public class UsuarioResourceTest {
 
     @Autowired
     public UsuarioResource resource;
+
+    @Autowired
+    public UsuarioService service;
 
     @BeforeEach
     public void setup() {
