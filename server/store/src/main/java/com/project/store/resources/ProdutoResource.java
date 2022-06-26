@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/user")
-public class UsuarioResource extends AbstractResource<Produto, ProdutoRepository> {
+@RequestMapping("/api/produto")
+public class ProdutoResource extends AbstractResource<Produto, ProdutoRepository> {
 
 }

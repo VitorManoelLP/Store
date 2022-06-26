@@ -1,33 +1,34 @@
 package com.project.store.domain;
 
 import com.project.store.domain.interfaces.DomainImp;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
+@Data
+@Table(name = "produtos")
 @Entity
-@Getter
-@Setter
-@EqualsAndHashCode(of = {"id", "nome"})
-public class Usuario implements DomainImp<Long> {
+public class Produto implements DomainImp<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    @NotNull
+    @NotEmpty
     private String nome;
 
     @Column
     @NotNull
-    private String email;
+    private BigDecimal valor;
 
     @Column
-    @NotNull
-    private String senha;
+    private Integer parcelas;
+
+    @Column
+    private String descricao;
 
 }

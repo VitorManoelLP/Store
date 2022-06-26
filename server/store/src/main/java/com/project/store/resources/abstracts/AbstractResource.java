@@ -2,6 +2,10 @@ package com.project.store.resources.abstracts;
 
 import com.project.store.domain.interfaces.DomainImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CacheConfig(cacheNames = "cacheResource")
 public abstract class AbstractResource<E extends DomainImp<Long>, R extends JpaRepository<E, Long>> {
 
     @Autowired
@@ -17,11 +22,13 @@ public abstract class AbstractResource<E extends DomainImp<Long>, R extends JpaR
     private Class<E> clazz;
 
     @PostMapping("/new")
+    @CacheEvict(value = "getAll")
     public ResponseEntity<E> save(@RequestBody @Valid E entity) {
         return ResponseEntity.ok(repository.save(entity));
     }
 
     @GetMapping("/{id}")
+    @CachePut(value = "getAll")
     public ResponseEntity<E> findById(@PathVariable Long id) {
         return ResponseEntity.ok(repository.findById(id)
                 .orElseThrow(() -> new IllegalCallerException(
@@ -29,15 +36,16 @@ public abstract class AbstractResource<E extends DomainImp<Long>, R extends JpaR
     }
 
     @GetMapping
+    @Cacheable(value = "getAll")
     public ResponseEntity<List<E>> findAll() {
         return ResponseEntity.ok(repository.findAll());
     }
 
     @DeleteMapping("/{id}")
+    @CacheEvict(value = "getAll")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         repository.deleteById(id);
         return ResponseEntity.ok().build();
     }
-
 
 }
