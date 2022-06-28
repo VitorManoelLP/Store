@@ -4,15 +4,19 @@ import com.project.store.domain.interfaces.DomainImp;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Entity
 @Getter
 @Setter
 @EqualsAndHashCode(of = {"id", "nome"})
-public class Usuario implements DomainImp<Long> {
+@Table(name = "usuarios")
+@ToString
+public class Usuario implements DomainImp<Long>, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

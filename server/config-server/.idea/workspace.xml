@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d786a28-6ff4-4a73-8335-606e2ded668e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../store/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/src/main/java/com/project/store/domain/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../store/src/main/java/com/project/store/domain/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/src/main/java/com/project/store/domain/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../store/src/main/java/com/project/store/domain/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../store/src/main/java/com/project/store/resources/UsuarioResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../store/src/main/java/com/project/store/resources/UsuarioResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../store/src/main/java/com/project/store/resources/abstracts/AbstractResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../store/src/main/java/com/project/store/resources/abstracts/AbstractResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/src/main/java/com/project/store/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../store/src/main/java/com/project/store/service/ProdutoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/src/main/java/com/project/store/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../store/src/main/java/com/project/store/service/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/src/main/java/com/project/store/service/interfaces/ServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../store/src/main/java/com/project/store/service/interfaces/ServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../store/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/src/test/java/com/project/store/configuration/CachingIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../store/src/test/java/com/project/store/configuration/CachingIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/src/test/java/com/project/store/resource/UsuarioResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../store/src/test/java/com/project/store/resource/UsuarioResourceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

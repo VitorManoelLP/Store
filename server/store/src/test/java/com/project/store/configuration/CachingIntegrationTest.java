@@ -4,15 +4,17 @@ import com.project.store.domain.Usuario;
 import com.project.store.fixture.Fixture;
 import com.project.store.repository.UsuarioRepository;
 import com.project.store.resources.UsuarioResource;
+import com.project.store.service.UsuarioService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import java.util.Arrays;
@@ -23,17 +25,18 @@ import static org.mockito.Mockito.*;
 
 @EnableCaching
 @ImportAutoConfiguration(classes = {
-        CacheAutoConfiguration.class
+        CacheAutoConfiguration.class,
+        RedisAutoConfiguration.class
 })
 @ContextConfiguration(classes = UsuarioResource.class, loader = AnnotationConfigContextLoader.class)
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 public class CachingIntegrationTest {
 
-    @MockBean
+    @Mock
     private UsuarioRepository usuarioRepository;
 
-    @Autowired(required = true)
-    private UsuarioResource usuarioResource;
+    @InjectMocks
+    private UsuarioService service;
 
     @Test
     public void findAllUsingRedisCache() {
@@ -42,8 +45,8 @@ public class CachingIntegrationTest {
 
         doReturn(Arrays.asList(usuario)).when(usuarioRepository).findAll();
 
-        List<Usuario> firstCall = usuarioResource.findAll().getBody();
-        List<Usuario> secondCall = usuarioResource.findAll().getBody();
+        List<Usuario> firstCall = service.findAll();
+        List<Usuario> secondCall = service.findAll();
 
         assertThat(firstCall.get(0)).isEqualTo(usuario);
         assertThat(secondCall.get(0)).isEqualTo(usuario);

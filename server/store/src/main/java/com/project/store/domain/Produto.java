@@ -9,7 +9,6 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Data
-@Table(name = "produtos")
 @Entity
 public class Produto implements DomainImp<Long> {
 
