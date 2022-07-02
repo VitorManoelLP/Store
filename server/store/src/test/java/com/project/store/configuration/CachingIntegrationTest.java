@@ -1,7 +1,7 @@
 package com.project.store.configuration;
 
 import com.project.store.domain.Usuario;
-import com.project.store.fixture.Fixture;
+import com.project.store.fixtures.Fixtures;
 import com.project.store.repository.UsuarioRepository;
 import com.project.store.resources.UsuarioResource;
 import org.junit.Test;
@@ -40,7 +40,7 @@ public class CachingIntegrationTest {
     @Test
     public void findAllUsingRedisCache() {
 
-        Usuario usuario = Fixture.createUsuario(1L);
+        Usuario usuario = Fixtures.createUsuario(1L);
 
         doReturn(Arrays.asList(usuario)).when(usuarioRepository).findAll();
 

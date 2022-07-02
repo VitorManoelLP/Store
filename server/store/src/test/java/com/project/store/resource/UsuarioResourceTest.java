@@ -1,7 +1,7 @@
 package com.project.store.resource;
 
 import com.project.store.domain.Usuario;
-import com.project.store.fixture.Fixture;
+import com.project.store.fixtures.Fixtures;
 import com.project.store.resources.UsuarioResource;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +37,7 @@ public class UsuarioResourceTest {
     @Test
     public void findById() throws Exception {
 
-        Usuario usuario = Fixture.createUsuario(1L);
+        Usuario usuario = Fixtures.createUsuario(1L);
 
         when(resource.findById(ArgumentMatchers.anyLong()).getBody())
                 .thenReturn(usuario);

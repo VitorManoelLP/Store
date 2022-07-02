@@ -22,13 +22,9 @@ public abstract class AbstractResource<E extends DomainImp<Long>, R extends JpaR
     @Autowired
     private ServiceImp<E> service;
 
-    protected E beforeSave(E entity) {
-        return entity;
-    }
-
     @PostMapping("/new")
     public ResponseEntity<E> save(@RequestBody @Valid E entity) {
-        beforeSave(entity);
+        service.beforeSave(entity);
         return ResponseEntity.ok(repository.save(entity));
     }
 

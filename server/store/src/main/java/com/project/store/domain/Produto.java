@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @EqualsAndHashCode(of = {"id", "nome"})
-@Table(name = "usuarios")
+@Table(name = "produtos")
 @Cacheable
 @ToString
 public class Produto implements DomainImp<Long> {
@@ -31,6 +31,11 @@ public class Produto implements DomainImp<Long> {
     @Column
     @NotNull
     private BigDecimal valor;
+
+    private Boolean isParcelado;
+
+    @Column(name = "valor_parcelas")
+    private BigDecimal valorParcelas;
 
     @Column
     private Integer parcelas;

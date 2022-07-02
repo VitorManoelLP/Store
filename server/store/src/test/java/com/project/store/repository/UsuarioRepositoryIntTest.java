@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @RepositoriesTest
-@DatabaseSetup(value = {"usuario.xml"})
+@DatabaseSetup(value = {"classpath:/dbunit-test/usuario.xml"})
 public class UsuarioRepositoryIntTest {
 
     @Autowired

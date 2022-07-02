@@ -2,8 +2,9 @@ spring:
   jpa:
     database: POSTGRESQL
     show-sql: true
+    format_sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
   datasource:
     platform: postgres
     url: jdbc:postgresql://localhost:5432/store
@@ -20,6 +21,9 @@ spring:
     host: localhost
     port: 6379
     database: 0
+  liquibase:
+    contexts: default
+    changeLog: classpath:db/db-master.xml
 
 server:
   port: 8081

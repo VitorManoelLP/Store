@@ -1,0 +1,30 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="PRODUTOS" author="VITOR.MANOEL">
+        <validCheckSum>ANY</validCheckSum>
+        <preConditions onFail="MARK_RAN" onFailMessage="Produto já existe no Banco de Dados">
+            <not>
+                <tableExists tableName="PRODUTOS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="PRODUTOS">
+            <column name="ID" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NOME" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALOR" type="NUMERIC(19,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_PARCELADO" type="boolean"/>
+            <column name="VALOR_PARCELAS" type="NUMERIC(19,2)"/>
+            <column name="PARCELAS" type="int4"/>
+            <column name="DESCRICAO" type="varchar(250)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
