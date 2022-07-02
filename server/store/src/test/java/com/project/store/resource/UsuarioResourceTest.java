@@ -54,4 +54,5 @@ public class UsuarioResourceTest {
                 .andExpect(status().is(200))
                 .andExpect(jsonPath("$.nome", is("Teste")));
     }
+
 }
