@@ -4,7 +4,7 @@ Welcome to my project "Store" take a look in my implementations. I hope that you
 
 
 
-### Steps for execute this project: 
+### Steps to execute this project: 
 
 | What is | Command |
 | --- | --- |
