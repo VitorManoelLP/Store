@@ -13,9 +13,7 @@ spring:
   application:
     name: store
     profile:
-      active: default
-    cloud:
-      config: http://localhost:8888/
+      active: dev
   cache:
     type: redis
   redis:

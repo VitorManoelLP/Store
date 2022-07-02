@@ -4,7 +4,6 @@ import com.project.store.domain.Usuario;
 import com.project.store.fixture.Fixture;
 import com.project.store.repository.UsuarioRepository;
 import com.project.store.resources.UsuarioResource;
-import com.project.store.service.UsuarioService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -36,7 +35,7 @@ public class CachingIntegrationTest {
     private UsuarioRepository usuarioRepository;
 
     @InjectMocks
-    private UsuarioService service;
+    private UsuarioResource resource;
 
     @Test
     public void findAllUsingRedisCache() {
@@ -45,8 +44,8 @@ public class CachingIntegrationTest {
 
         doReturn(Arrays.asList(usuario)).when(usuarioRepository).findAll();
 
-        List<Usuario> firstCall = service.findAll();
-        List<Usuario> secondCall = service.findAll();
+        List<Usuario> firstCall = resource.findAll().getBody();
+        List<Usuario> secondCall = resource.findAll().getBody();
 
         assertThat(firstCall.get(0)).isEqualTo(usuario);
         assertThat(secondCall.get(0)).isEqualTo(usuario);

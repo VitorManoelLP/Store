@@ -15,6 +15,7 @@ import java.io.Serializable;
 @Setter
 @EqualsAndHashCode(of = {"id", "nome"})
 @Table(name = "usuarios")
+@Cacheable
 @ToString
 public class Usuario implements DomainImp<Long>, Serializable {
 
