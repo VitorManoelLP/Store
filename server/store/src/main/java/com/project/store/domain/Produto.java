@@ -32,14 +32,6 @@ public class Produto implements DomainImp<Long> {
     @NotNull
     private BigDecimal valor;
 
-    private Boolean isParcelado;
-
-    @Column(name = "valor_parcelas")
-    private BigDecimal valorParcelas;
-
-    @Column
-    private Integer parcelas;
-
     @Column
     private String descricao;
 

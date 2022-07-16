@@ -2,17 +2,21 @@ package com.project.store.resource;
 
 import com.project.store.domain.Usuario;
 import com.project.store.fixtures.Fixtures;
+import com.project.store.repository.UsuarioRepository;
 import com.project.store.resources.UsuarioResource;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
@@ -29,6 +33,9 @@ public class UsuarioResourceTest {
     @InjectMocks
     public UsuarioResource resource;
 
+    @Mock
+    public UsuarioRepository usuarioRepository;
+
     @Before
     public void setup() {
         mockMvc = MockMvcBuilders.standaloneSetup(resource).build();
@@ -39,8 +46,8 @@ public class UsuarioResourceTest {
 
         Usuario usuario = Fixtures.createUsuario(1L);
 
-        when(resource.findById(ArgumentMatchers.anyLong()).getBody())
-                .thenReturn(usuario);
+        when(usuarioRepository.findById(ArgumentMatchers.anyLong()))
+                .thenReturn(Optional.of(usuario));
 
         mockMvc.perform(get("/api/user/1")
                         .contentType(MediaType.APPLICATION_JSON_VALUE))

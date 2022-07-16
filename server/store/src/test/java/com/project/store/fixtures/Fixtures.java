@@ -21,27 +21,16 @@ public final class Fixtures {
         return usuario;
     }
 
-    public static Produto createProdutoParcelado(Long id, Integer parcelas) {
-
-        Produto produto = createProduto(id);
-        produto.setIsParcelado(true);
-        produto.setParcelas(parcelas);
-
-        return produto;
-    }
-
     public static Produto createProduto(Long id) {
 
         Produto produto = new Produto();
         produto.setId(id);
         produto.setNome("TesteProduto");
         produto.setValor(new BigDecimal("100"));
-        produto.setIsParcelado(false);
-        produto.setValorParcelas(new BigDecimal("0"));
-        produto.setParcelas(0);
         produto.setDescricao("TesteDescricao");
 
         return produto;
     }
+
 
 }
