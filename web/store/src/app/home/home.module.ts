@@ -1,3 +1,4 @@
+import { NavbarModule } from './../components/navbar/navbar.module';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,7 @@ const routes: Routes = [
   declarations: [HomeComponent],
   imports: [
     RouterModule.forChild(routes),
+    NavbarModule,
     CommonModule
   ]
 })
