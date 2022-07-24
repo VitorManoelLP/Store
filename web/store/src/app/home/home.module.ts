@@ -1,3 +1,4 @@
+import { ProductService } from './../services/product.service';
 import { ProductCardComponent } from './../components/card/product-card.component';
 import { NavbarModule } from './../components/navbar/navbar.module';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,9 +10,9 @@ import { ProductCardModule } from '../components/card/product-card.module';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
-  }
-]
+    component: HomeComponent,
+  },
+];
 
 @NgModule({
   declarations: [HomeComponent],
@@ -19,7 +20,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     NavbarModule,
     CommonModule,
-    ProductCardModule
-  ]
+    ProductCardModule,
+  ],
+  providers: [ProductService],
 })
-export class HomeModule { }
+export class HomeModule {}

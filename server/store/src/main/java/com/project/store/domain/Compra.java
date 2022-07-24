@@ -20,6 +20,7 @@ public class Compra implements DomainImp<Long> {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_carrinho")
     private Carrinho carrinho;
 
     @Column

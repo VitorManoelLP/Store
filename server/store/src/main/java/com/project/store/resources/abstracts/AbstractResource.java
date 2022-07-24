@@ -21,8 +21,7 @@ public abstract class AbstractResource<E extends DomainImp<Long>, R extends JpaR
 
     @Autowired
     private R repository;
-
-    @Autowired
+    
     private ServiceImp<E> service;
 
     @PostMapping("/new")

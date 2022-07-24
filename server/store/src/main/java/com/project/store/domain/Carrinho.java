@@ -21,12 +21,13 @@ public class Carrinho implements DomainImp<Long> {
     private Long id;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "id_produtos")
     private List<Produto> produtos;
 
-    @Column
+    @Column(name = "valor_total")
     private BigDecimal valorTotal;
 
-    @Column
+    @Column(name = "is_parcelado")
     private Boolean isParcelado;
 
     @Column(name = "valor_parcelas")

@@ -3,6 +3,12 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <include file="database/produto.xml" relativeToChangelogFile="true"/>
+    <!-- create database -->
     <include file="database/usuario.xml" relativeToChangelogFile="true"/>
+    <include file="database/produto.xml" relativeToChangelogFile="true"/>
+    <include file="database/carrinho.xml" relativeToChangelogFile="true"/>
+    <include file="database/compra.xml" relativeToChangelogFile="true"/>
+
+    <!--insert-->
+    <include file="insert/insert_produto.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

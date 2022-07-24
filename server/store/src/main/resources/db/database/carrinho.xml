@@ -1,0 +1,37 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="CARRINHO" author="VITOR.MANOEL">
+        <validCheckSum>ANY</validCheckSum>
+        <preConditions onFail="MARK_RAN" onFailMessage="Carrinho já existe no Banco de Dados">
+            <not>
+                <tableExists tableName="CARRINHO"/>
+            </not>
+        </preConditions>
+        <createTable tableName="CARRINHO">
+            <column name="ID" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ID_PRODUTOS" type="bigserial">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALOR_TOTAL" type="NUMERIC(19,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_PARCELADO" type="BOOLEAN"/>
+            <column name="VALOR_PARCELAS" type="NUMERIC(19,2)"/>
+            <column name="PARCELAS" type="int4"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="vitor.manoel" id="ADD_FK_PRODUTOS">
+        <addForeignKeyConstraint baseColumnNames="ID_PRODUTOS"
+                                 baseTableName="CARRINHO"
+                                 constraintName="FK_PRODUTOS"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="PRODUTOS"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,5 +1,9 @@
 <div class="row row-cols-1 row-cols-md-3 g-4 container mt-5">
-  <div class="col link-to-product-1" style="width: 18rem">
+  <div
+    class="col link-to-product-1"
+    style="width: 18rem"
+    *ngFor="let product of products"
+  >
     <div class="card">
       <a href="#" class="link-to-product">
         <img
@@ -8,9 +12,11 @@
           alt="produto"
         />
         <div class="card-body">
-          <h5 class="card-title">Playstation 5</h5>
+          <h5 class="card-title">{{ product.name }}</h5>
           <p class="card-text">
-            <span class="fw-bold text-warning"> R$ 4.749,90 <br /> </span>
+            <span class="fw-bold text-warning">
+              {{ product.valor }} <br />
+            </span>
             <span class="text-muted" style="font-size: 15px">
               À vista no PIX
             </span>
