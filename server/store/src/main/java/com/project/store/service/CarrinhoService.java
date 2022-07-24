@@ -3,6 +3,7 @@ package com.project.store.service;
 import com.project.store.domain.Carrinho;
 import com.project.store.domain.Produto;
 import com.project.store.service.interfaces.ServiceImp;
+import com.project.store.utils.ValidationUtils;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -19,9 +20,9 @@ public class CarrinhoService implements ServiceImp<Carrinho> {
 
         if (carrinho.getIsParcelado()) {
 
-            if (carrinho.getParcelas().equals(0) || Objects.isNull(carrinho.getParcelas())) {
-                throw new IllegalArgumentException("Escolha uma quantidade de parcelas!");
-            }
+            ValidationUtils
+                    .handlerIllegalWithCondition(Objects.isNull(carrinho.getParcelas()),
+                            "Escolha uma quantidade de parcelas!");
 
             calculateInstallments(carrinho);
         }
@@ -30,6 +31,7 @@ public class CarrinhoService implements ServiceImp<Carrinho> {
     }
 
     private void calculateInstallments(Carrinho carrinho) {
+
         BigDecimal valorCarrinho = carrinho.getProdutos().stream()
                 .map(Produto::getValor)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);

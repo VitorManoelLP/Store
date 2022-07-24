@@ -5,7 +5,10 @@ import com.project.store.service.interfaces.ServiceImp;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +35,11 @@ public abstract class AbstractResource<E extends DomainImp<Long>, R extends JpaR
     public ResponseEntity<E> findById(@PathVariable Long id) {
         return ResponseEntity.ok(repository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("ID não encontrado")));
+    }
+
+    @GetMapping("/page-all")
+    public ResponseEntity<Page<E>> findAllPageable(@PageableDefault() Pageable pageable) {
+        return ResponseEntity.ok(repository.findAll(pageable));
     }
 
     @GetMapping("/all")
